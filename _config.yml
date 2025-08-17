@@ -26,3 +26,25 @@ author:
   h_index: 23
   scholar_url: "https://scholar.google.com/citations?user=eunchan789"
   github_url: "https://github.com/purang2"
+
+# 모든 페이지 미리 생성
+keep_files: [".git"]
+incremental: false
+
+# 더 빠른 빌드 설정
+kramdown:
+  input: GFM
+  auto_ids: true
+  hard_wrap: false
+  syntax_highlighter: rouge
+  
+# 캐시 설정
+sass:
+  style: compressed
+  
+# 빌드 최적화
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
