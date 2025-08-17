@@ -1,4 +1,6 @@
 // assets/js/spa-navigation.js
+
+/*
 class SPANavigation {
   constructor() {
     this.init();
@@ -86,4 +88,4 @@ class SPANavigation {
 // 초기화
 document.addEventListener('DOMContentLoaded', () => {
   new SPANavigation();
-});
+}); */
