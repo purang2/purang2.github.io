@@ -1,45 +1,29 @@
-# _config.yml
 title: "이은찬"
 description: "AI Research Scientist"
 url: "https://purang2.github.io"
 baseurl: ""
 
-# 개인 정보
-author:
-  name: "이은찬"
-  title: "AI Research Scientist"
-  affiliation: "UNIST AIGS
-  major: "Large Language Models, AGI"
-  education: "UNIST AIGS, PhD"
-  interests: ["Transformer", "RLHF", "Multimodal", "AGI Safety"]
-  h_index: 23
-  scholar_url: "https://scholar.google.com/citations?user=eunchan789"
-  github_url: "https://github.com/purang2"
-  twitter_url: "https://twitter.com/yourusername"
-  linkedin_url: "https://linkedin.com/in/purang2"
-
-# Jekyll 설정
 markdown: kramdown
 highlighter: rouge
 theme: minima
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
 
-# 포스트 기본 설정
-defaults:
-  - scope:
-      path: "_posts"
-      type: posts
-    values:
-      layout: post
-      comments: false
-
-# 수식 지원
-kramdown:
-  math_engine: mathjax
-  input: GFM
-  auto_ids: true
-  hard_wrap: false
-  syntax_highlighter: rouge
+# 개인 정보
+author:
+  name: "이은찬"
+  title: "AI Research Scientist"
+  affiliation: "KT AI"
+  major: "Large Language Models, AGI"
+  education: "UNIST"
+  interests: 
+    - "Transformer"
+    - "RLHF" 
+    - "Multimodal"
+    - "AGI Safety"
+  h_index: 23
+  scholar_url: "https://scholar.google.com/citations?user=eunchan789"
+  github_url: "https://github.com/purang2"
