@@ -9,8 +9,6 @@ theme: minima
 
 plugins:
   - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-seo-tag
 
 # 개인 정보
 author:
