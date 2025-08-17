@@ -1,0 +1,30 @@
+categories:
+  - name: "논문리뷰"
+    emoji: "📄"
+    color: "#1a73e8"
+    description: "AI/ML 최신 논문 분석"
+  
+  - name: "시·독서"
+    emoji: "📚"
+    color: "#7b1fa2"
+    description: "읽은 책과 써본 시"
+  
+  - name: "음악·코인노래방"
+    emoji: "🎤"
+    color: "#d32f2f"
+    description: "음악 리뷰와 노래방 후기"
+  
+  - name: "코딩일지"
+    emoji: "💻"
+    color: "#388e3c"
+    description: "개발 경험과 기술 노트"
+  
+  - name: "일상·생각"
+    emoji: "💭"
+    color: "#f57c00"
+    description: "연구자의 일상과 단상"
+  
+  - name: "여행·맛집"
+    emoji: "✈️"
+    color: "#0288d1"
+    description: "다녀온 곳들의 기록"

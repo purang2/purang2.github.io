@@ -1,8 +1,99 @@
 ---
 ---
 
+---
+---
+
 @import "minima";
 
+/* 플레이리스트 위젯 */
+.playlist-widget {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 300px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1.2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: 1000;
+  font-size: 0.85rem;
+}
+
+.playlist-widget:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.playlist-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.emoji {
+  font-size: 2rem;
+}
+
+.title {
+  font-weight: 600;
+  color: #333;
+  line-height: 1.2;
+  font-size: 0.95rem;
+}
+
+.meta {
+  color: #666;
+  font-size: 0.8rem;
+}
+
+.current-track {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  padding: 0.8rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  color: #555;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  border-left: 3px solid #1db954;
+}
+
+.listen-btn {
+  display: block;
+  text-align: center;
+  background: linear-gradient(135deg, #1db954, #1ed760);
+  color: white;
+  padding: 0.7rem 1rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  margin-bottom: 0.8rem;
+}
+
+.listen-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(29, 185, 84, 0.3);
+}
+
+.spotify-embed iframe {
+  border-radius: 12px;
+}
+
+/* 모바일에서는 하단으로 이동 */
+@media (max-width: 768px) {
+  .playlist-widget {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    margin: 1rem 0;
+  }
+}
 // Gmail 스타일 CSS (위의 HTML 아티팩트에서 복사)
 * {
     margin: 0;
@@ -307,4 +398,92 @@ body {
                 display: none;
             }
         }
-// ... 나머지 CSS는 아티팩트에서 복사
+
+
+        /* 카테고리 필터 */
+.category-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+    padding: 1rem 0;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* 카테고리 버튼 색상 */
+.category-btn[data-category="논문리뷰"] { 
+    color: #1a73e8; 
+    border-color: #1a73e8;
+}
+
+.category-btn[data-category="시·독서"] { 
+    color: #7b1fa2; 
+    border-color: #7b1fa2;
+}
+
+.category-btn[data-category="음악·코인노래방"] { 
+    color: #d32f2f; 
+    border-color: #d32f2f;
+}
+
+.category-btn[data-category="코딩일지"] { 
+    color: #388e3c; 
+    border-color: #388e3c;
+}
+
+.category-btn[data-category="일상·생각"] { 
+    color: #f57c00; 
+    border-color: #f57c00;
+}
+
+.category-btn[data-category="여행·맛집"] { 
+    color: #0288d1; 
+    border-color: #0288d1;
+}
+
+/* hover 효과도 추가 */
+.category-btn[data-category="논문리뷰"]:hover { background: rgba(26, 115, 232, 0.1); }
+.category-btn[data-category="시·독서"]:hover { background: rgba(123, 31, 162, 0.1); }
+.category-btn[data-category="음악·코인노래방"]:hover { background: rgba(211, 47, 47, 0.1); }
+.category-btn[data-category="코딩일지"]:hover { background: rgba(56, 142, 60, 0.1); }
+.category-btn[data-category="일상·생각"]:hover { background: rgba(245, 124, 0, 0.1); }
+.category-btn[data-category="여행·맛집"]:hover { background: rgba(2, 136, 209, 0.1); }
+.category-btn:hover {
+    background: #e9ecef;
+    transform: translateY(-1px);
+}
+
+.category-btn.active {
+    background: #007acc;
+    color: white;
+    border-color: #007acc;
+}
+
+/* 카테고리별 색상 */
+.post-type.논문리뷰 { color: #1a73e8; }
+.post-type.시-독서 { color: #7b1fa2; }
+.post-type.음악-코인노래방 { color: #d32f2f; }
+.post-type.코딩일지 { color: #388e3c; }
+.post-type.일상-생각 { color: #f57c00; }
+.post-type.여행-맛집 { color: #0288d1; }
+
+/* 기본 post-type 스타일 */
+.post-type {
+    font-size: 0.8rem;
+    font-weight: 500;
+    white-space: nowrap;
+    min-width: 80px;
+    text-align: right;
+}
+/* 반응형 */
+@media (max-width: 768px) {
+    .category-filter {
+        gap: 0.3rem;
+    }
+    
+    .category-btn {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+    }
+}

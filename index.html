@@ -1,0 +1,74 @@
+---
+layout: default
+---
+
+<header class="site-header">
+    <div class="profile-section">
+        <div class="profile-img">이</div>
+        <div class="profile-info">
+            <h1>이은찬</h1>
+            <p class="subtitle">AI Research Scientist</p>
+            
+            <div class="profile-details">
+                <span class="detail-label">소속:</span>
+                <span class="detail-value">KAIST AI Graduate School</span>
+                
+                <span class="detail-label">전공:</span>
+                <span class="detail-value">Large Language Models, AGI</span>
+                
+                <span class="detail-label">연구분야:</span>
+                <div class="detail-value interests">
+                    <span class="interest-tag">Transformer</span>
+                    <span class="interest-tag">RLHF</span>
+                    <span class="interest-tag">Multimodal</span>
+                    <span class="interest-tag">AGI Safety</span>
+                </div>
+                <div class="category-filter">
+    <button class="category-btn active" data-category="all">전체</button>
+    {% for cat in site.data.categories.categories %}
+    <button class="category-btn" data-category="{{ cat.name }}" data-color="{{ cat.color }}">
+        {{ cat.emoji }} {{ cat.name }}
+    </button>
+    {% endfor %}
+</div>
+            </div>
+        </div>
+    </div>
+    
+    <nav class="nav">
+        <a href="/">Posts</a>
+        <a href="/about">About</a>
+        <a href="/papers">Papers</a>
+        <a href="/contact">Contact</a>
+    </nav>
+</header>
+
+<main class="post-list-container">
+    <ul class="post-list">
+        {% for post in site.posts %}
+        <li class="post-item" data-category="{{ post.category }}">
+    <div class="post-date">{{ post.date | date: "%b %d" }}</div>
+    <div class="post-main">
+        <a href="{{ post.url | relative_url }}" class="post-title">{{ post.title }}</a>
+        <div class="post-snippet">{{ post.excerpt | strip_html | truncate: 120 }}</div>
+    </div>
+    <div class="post-type" data-category="{{ post.category | slugify }}">
+        {% assign category_found = false %}
+        {% for cat in site.data.categories.categories %}
+            {% if cat.name == post.category %}
+                {{ cat.emoji }} {{ cat.name }}
+                {% assign category_found = true %}
+                {% break %}
+            {% endif %}
+        {% endfor %}
+        {% unless category_found %}
+            💭 {{ post.category | default: "일상" }}
+        {% endunless %}
+    </div>
+</li>
+        {% endfor %}
+    </ul>
+</main>
+
+<!-- 플레이리스트 위젯 -->
+{% include playlist-widget.html %}

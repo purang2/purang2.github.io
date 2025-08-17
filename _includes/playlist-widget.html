@@ -1,0 +1,27 @@
+<div class="playlist-widget">
+  <div class="playlist-header">
+    <span class="emoji">{{ site.data.playlist.emoji }}</span>
+    <div class="info">
+      <div class="title">{{ site.data.playlist.title }}</div>
+      <div class="meta">{{ site.data.playlist.total_tracks }}곡</div>
+    </div>
+  </div>
+  
+  <div class="current-track">
+    🎵 {{ site.data.playlist.current_track }}
+  </div>
+  
+  <div class="playlist-actions">
+    <a href="{{ site.data.playlist.spotify_url }}" target="_blank" class="listen-btn">
+      Spotify에서 듣기 →
+    </a>
+  </div>
+  
+  <!-- 간단한 임베드 (선택사항) -->
+  <div class="spotify-embed" style="margin-top: 0.8rem;">
+    <iframe src="{{ site.data.playlist.spotify_embed }}" 
+            width="100%" height="152" frameborder="0" 
+            allowtransparency="true" allow="encrypted-media">
+    </iframe>
+  </div>
+</div>
