@@ -1,0 +1,81 @@
+---
+layout: default
+---
+
+<header class="site-header">
+    <div class="profile-section">
+        <div class="profile-img">{{ site.author.name | slice: 0 }}</div>
+        <div class="profile-info">
+            <h1>{{ site.author.name }}</h1>
+            <p class="subtitle">{{ site.author.title }}</p>
+            
+            <div class="profile-details">
+                <span class="detail-label">소속:</span>
+                <span class="detail-value">{{ site.author.affiliation }}</span>
+                
+                <span class="detail-label">전공:</span>
+                <span class="detail-value">{{ site.author.major }}</span>
+                
+                <span class="detail-label">학력:</span>
+                <span class="detail-value">{{ site.author.education }}</span>
+                
+                <span class="detail-label">연구분야:</span>
+                <div class="detail-value interests">
+                    {% for interest in site.author.interests %}
+                    <span class="interest-tag">{{ interest }}</span>
+                    {% endfor %}
+                </div>
+                
+                <span class="detail-label">논문:</span>
+                <span class="detail-value">
+                    <a href="{{ site.author.scholar_url }}" target="_blank">Google Scholar</a> 
+                    (h-index: {{ site.author.h_index }})
+                </span>
+                
+                <span class="detail-label">SNS:</span>
+                <span class="detail-value">
+                    <a href="{{ site.author.github_url }}" target="_blank">GitHub</a> · 
+                    <a href="{{ site.author.twitter_url }}" target="_blank">Twitter</a> · 
+                    <a href="{{ site.author.linkedin_url }}" target="_blank">LinkedIn</a>
+                </span>
+            </div>
+        </div>
+    </div>
+    
+    <nav class="nav">
+        <a href="{{ '/' | relative_url }}">Posts</a>
+        <a href="{{ '/about' | relative_url }}">About</a>
+        <a href="{{ '/papers' | relative_url }}">Papers</a>
+        <a href="{{ '/contact' | relative_url }}">Contact</a>
+    </nav>
+</header>
+
+<div class="bulk-actions" id="bulkActions">
+    <span id="selectedCount">0</span>개 선택됨
+    <a href="#" class="action-btn">읽음으로 표시</a>
+    <a href="#" class="action-btn">보관</a>
+</div>
+
+<main class="post-list-container">
+    <ul class="post-list">
+        {% for post in site.posts %}
+        <li class="post-item" data-unread="{% if post.unread %}true{% else %}false{% endif %}">
+            <div class="checkbox" onclick="toggleCheck(this)"></div>
+            <div class="post-date">{{ post.date | date: "%b %d" }}</div>
+            <div class="post-main">
+                <a href="{{ post.url | relative_url }}" class="post-title{% if post.unread %} unread{% endif %}">{{ post.title }}</a>
+                <div class="post-snippet">{{ post.excerpt | strip_html | truncate: 120 }}</div>
+                {% if post.paper_info %}
+                <div class="post-meta">
+                    {{ post.paper_info }}
+                    {% if post.venue %}<span class="paper-badge">{{ post.venue }}</span>{% endif %}
+                </div>
+                {% endif %}
+            </div>
+            <div class="post-type">{{ post.category | default: "에세이" }}</div>
+        </li>
+        {% endfor %}
+    </ul>
+</main>
+
+<script src="{{ '/assets/js/gmail-style.js' | relative_url }}"></script>
